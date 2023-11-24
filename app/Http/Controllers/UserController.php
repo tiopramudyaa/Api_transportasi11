@@ -140,6 +140,7 @@ class UserController extends Controller
             $userChange = User::where('name',$authenticationData['username'])->first();
             if(!$userChange)throw new \Exception("User tidak ditemukan");
             $userChange->password = $request['password'];
+            $userChange->save();
             return response()->json([
                 "status" => true,
                 "message" =>'Berhasil Mengubah Password',

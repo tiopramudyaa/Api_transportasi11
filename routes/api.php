@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('User',UserController::class);
 Route::post('/login',[UserController::class,'authenticate']);
+Route::post('/resetPassword',[UserController::class,'resetPassword']);
