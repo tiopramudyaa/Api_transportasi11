@@ -136,7 +136,7 @@ class UserController extends Controller
 
     public function resetPassword(Request $request){
         try{
-            $authenticationData = $request->only('username');
+            $authenticationData = $request->only('username','password');
             $userChange = User::where('name',$authenticationData['username'])->first();
             if(!$userChange)throw new \Exception("User tidak ditemukan");
             $userChange->password = $request['password'];
