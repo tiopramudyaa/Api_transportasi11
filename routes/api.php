@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< Updated upstream
 use App\Http\Controllers\UserController;
+=======
+use App\Http\Controllers\Api\TiketController;
+>>>>>>> Stashed changes
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< Updated upstream
 Route::apiResource('User',UserController::class);
 Route::post('/login',[UserController::class,'authenticate']);
 Route::post('/resetPassword',[UserController::class,'resetPassword']);
+=======
+Route::apiResource('tiket', TiketController::class);
+>>>>>>> Stashed changes
