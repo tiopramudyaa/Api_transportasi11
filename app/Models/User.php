@@ -23,4 +23,6 @@ class User extends Authenticatable
         'profilePicture'
     ];
 
+    public $timestamps = false;
+
 }

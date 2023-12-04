@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\StasiunController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Api\TiketController;
 use Illuminate\Http\Request;
@@ -18,5 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('User',UserController::class);
 Route::post('/login',[UserController::class,'authenticate']);
+Route::get('/all',[StasiunController::class,'index']);
 Route::post('/resetPassword',[UserController::class,'resetPassword']);
 Route::apiResource('tiket', TiketController::class);
