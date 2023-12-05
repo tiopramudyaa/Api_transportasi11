@@ -13,9 +13,16 @@ class review extends Model
     protected $primaryKey = "id";
 
     protected $fillable = [
-        "id",
         "id_kereta",
         "id_user",
         "content"
     ];
+
+    public function User() {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function Kereta() {
+        return $this->belongsTo(kereta::class, 'id_kereta');
+    }
 }

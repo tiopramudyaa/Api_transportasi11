@@ -10,10 +10,10 @@ class Stasiun extends Model
     use HasFactory;
     public $timestamps = false;
     protected $table = "stasiun";
-    protected $primaryKey = "id";
+    protected $primaryKey = "kode";
 
     protected $fillable = [
-        "id",
+        "kode",
         "nama",
         "kota",
     ];

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tiket;
+use App\Models\kereta;
 use Illuminate\Http\Request;
-use PHPUnit\Framework\Attributes\Ticket;
 
-class TiketController extends Controller //done
+class KeretaController extends Controller //done kode masih 0 tapi tersimpan dengan baik (cuma tampilan)
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,11 @@ class TiketController extends Controller //done
     public function index()
     {
         try{
-            $tiket = Tiket::all();
+            $kereta = Kereta::all();
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil ambil data',
-                "data" => $tiket
+                "data" => $kereta
             ], 200);
         } catch(\Exception $e) {
             return response()->json([
@@ -30,42 +29,15 @@ class TiketController extends Controller //done
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         try{
-            $tiket = Tiket::create($request->all());
+            $kereta = Kereta::create($request->all());
 
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil insert data',
-                "data" => $tiket
-            ], 200);
-        }catch(\Exception $e) {
-            return response()->json([
-                "status" => false,
-                "message" => $e->getMessage(),
-                "data" => []
-            ], 400);
-        }
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
-    {
-        try {
-            $tiket = Tiket::find($id);
-
-            if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
-
-            return response()->json([
-                "status" => true,
-                "message" => 'Berhasil ambil data',
-                "data" => $tiket
+                "data" => $kereta
             ], 200);
         } catch(\Exception $e) {
             return response()->json([
@@ -76,22 +48,40 @@ class TiketController extends Controller //done
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    public function show($id)
+    {
+        try {
+            $kereta = kereta::find($id);
+
+            if(!$kereta) throw new \Exception("Kereta tidak ditemukan");
+
+            return response()->json([
+                "status" => true,
+                "message" => 'Berhasil ambil data',
+                "data" => $kereta
+            ], 200);
+        } catch(\Exception $e) {
+            return response()->json([
+                "status" => false,
+                "message" => $e->getMessage(),
+                "data" => []
+            ], 400);
+        }
+    }
+
     public function update(Request $request, $id)
     {
         try {
-            $tiket = Tiket::find($id);
+            $kereta = kereta::find($id);
 
-            if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
+            if(!$kereta) throw new \Exception("Kereta tidak ditemukan");
 
-            $tiket->update($request->all());
+            $kereta->update($request->all());
 
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil update data',
-                "data" => $tiket
+                "data" => $kereta
             ], 200);
             
         } catch(\Exception $e) {
@@ -103,22 +93,19 @@ class TiketController extends Controller //done
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         try {
-            $tiket = Tiket::find($id);
+            $kereta = Kereta::find($id);
 
-            if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
+            if(!$kereta) throw new \Exception("Kereta tidak ditemukan");
 
-            $tiket->delete();
+            $kereta->delete();
 
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil hapus data',
-                "data" => $tiket
+                "data" => $kereta
             ], 200);
         } catch(\Exception $e) {
             return response()->json([
@@ -128,4 +115,6 @@ class TiketController extends Controller //done
             ], 400);
         }
     }
+
+
 }

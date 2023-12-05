@@ -11,7 +11,7 @@ class StasiunController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() //done tapi kode masih 0 semua tapi benar
     {
         try{
             $stat = Stasiun::all();
