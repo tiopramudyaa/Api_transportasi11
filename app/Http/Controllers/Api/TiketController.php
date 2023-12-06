@@ -58,7 +58,7 @@ class TiketController extends Controller //done
     public function show($id)
     {
         try {
-            $tiket = Tiket::where('id_kereta','=',$id);
+            $tiket = Tiket::where('id_user','=',$id);
 
             if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
 
