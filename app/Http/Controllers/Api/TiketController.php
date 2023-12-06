@@ -58,7 +58,28 @@ class TiketController extends Controller //done
     public function show($id)
     {
         try {
-            $tiket = Tiket::where('id_user','=',$id);
+            $tiket = Tiket::find($id);
+
+            if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
+
+            return response()->json([
+                "status" => true,
+                "message" => 'Berhasil ambil data',
+                "data" => $tiket
+            ], 200);
+        } catch(\Exception $e) {
+            return response()->json([
+                "status" => false,
+                "message" => $e->getMessage(),
+                "data" => []
+            ], 400);
+        }
+    }
+
+    public function showByUser($id)
+    {
+        try {
+            $tiket = Tiket::where('id_user','=',$id)->get();
 
             if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
 
