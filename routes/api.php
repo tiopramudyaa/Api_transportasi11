@@ -34,11 +34,16 @@ Route::apiResource('transaksi',TransaksiController::class);
 Route::get('transaksiUser/{id}',[TransaksiController::class,'showByUser']);
 
 Route::apiResource('tiket', TiketController::class);
+Route::get('tiketShow/{id}',[TiketController::class,'showByUser']);
 
-Route::apiResource('kereta', KeretaController::class);
+Route::apiResource('/kereta', KeretaController::class);
 
 Route::get('/jadwal',[JadwalController::class,'index']);
+
 Route::get('/showJadwal/{berangkat}/{tiba}/{tanggal}',[JadwalController::class, 'show']);
+
+Route::get('/jadwal/{id}',[JadwalController::class,'showById']);
+
 
 Route::apiResource('review', ReviewController::class);
 Route::get('/reviewByKereta/{kode}',[ReviewController::class,'index']);
