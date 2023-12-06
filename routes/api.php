@@ -27,7 +27,7 @@ Route::post('/resetPassword',[UserController::class,'resetPassword']);
 Route::get('/all',[StasiunController::class,'index']);
 
 Route::apiResource('tiket', TiketController::class);
-Route::get('tiket/{id}',[TiketController::class,'showByUser']);
+Route::get('tiketShow/{id}',[TiketController::class,'showByUser']);
 
 Route::apiResource('kereta', KeretaController::class);
 
