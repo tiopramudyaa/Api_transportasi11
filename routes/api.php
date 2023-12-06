@@ -29,11 +29,11 @@ Route::get('/all',[StasiunController::class,'index']);
 Route::apiResource('tiket', TiketController::class);
 Route::get('tiketShow/{id}',[TiketController::class,'showByUser']);
 
-Route::apiResource('kereta', KeretaController::class);
+Route::apiResource('/kereta', KeretaController::class);
 
 Route::get('/jadwal',[JadwalController::class,'index']);
 Route::get('/showJadwal/{tanggal}&{berangkat}&{tiba}&{stasiun}',[JadwalController::class, 'show']);
-Route::get('jadwal/{id}',[JadwalController::class,'showById']);
+Route::get('/jadwal/{id}',[JadwalController::class,'showById']);
 
 Route::apiResource('review', ReviewController::class);
 Route::get('/reviewByKereta/{kode}',[ReviewController::class,'index']);
