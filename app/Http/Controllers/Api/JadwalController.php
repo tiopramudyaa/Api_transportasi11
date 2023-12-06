@@ -66,4 +66,25 @@ class JadwalController extends Controller
         }
     }
 
+    public function showById($id)
+    {
+        try {
+            $jadwal = jadwal::find($id);
+
+            if(!$jadwal) throw new \Exception("Jadwal tidak ditemukan");
+
+            return response()->json([
+                "status" => true,
+                "message" => 'Berhasil ambil data',
+                "data" => $jadwal
+            ], 200);
+        } catch(\Exception $e) {
+            return response()->json([
+                "status" => false,
+                "message" => $e->getMessage(),
+                "data" => []
+            ], 400);
+        }
+    }
+
 }
