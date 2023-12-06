@@ -4,8 +4,10 @@ use App\Http\Controllers\Api\JadwalController;
 use App\Http\Controllers\Api\KeretaController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\StasiunController;
+use App\Http\Controllers\Api\SouvenirController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Api\TiketController;
+use App\Http\Controllers\Api\TransaksiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,12 +28,17 @@ Route::post('/resetPassword',[UserController::class,'resetPassword']);
 
 Route::get('/all',[StasiunController::class,'index']);
 
+Route::get('/allSouve',[SouvenirController::class,'index']);
+
+Route::apiResource('transaksi',TransaksiController::class);
+Route::get('transaksiUser/{id}',[TransaksiController::class,'showByUser']);
+
 Route::apiResource('tiket', TiketController::class);
 
 Route::apiResource('kereta', KeretaController::class);
 
 Route::get('/jadwal',[JadwalController::class,'index']);
-Route::get('/showJadwal/{tanggal}&{berangkat}&{tiba}&{stasiun}',[JadwalController::class, 'show']);
+Route::get('/showJadwal/{berangkat}/{tiba}/{tanggal}',[JadwalController::class, 'show']);
 
 Route::apiResource('review', ReviewController::class);
 Route::get('/reviewByKereta/{kode}',[ReviewController::class,'index']);

@@ -12,29 +12,24 @@ class JadwalController extends Controller
      * Display a listing of the resource.
      */
 
-    public function show($tgl, $berangkat, $tiba, $stasiun)
+    public function show(String $berangkat, String $tiba, String $tgl)
     {
         try { //masih salah -> logika db nya juga masih salah nanti ku kelarin
             $jadwal = jadwal::join(
                 'kereta', 'kereta.kode' , '=', 'jadwal.id_kereta'
-            )->join(
-                'stasiun', 'stasiun.kode' , '=', 'jadwal.id_stasiun_tiba'
             )->where(
-                'jadwal.berangkat', '>=', $berangkat
+                'jadwal.berangkat', '=', $berangkat
             )->where(
-                'jadwal.tiba', '>=', $tiba
+                'jadwal.tiba', '=', $tiba
             )->where(
-                'jadwal.tgl', '>', $tgl
-            )->where(
-                'jadwal.id_stasiun_berangkat','=', $stasiun
-            );
-
+                'jadwal.tanggal', '=', $tgl
+            )->get();
             if(!$jadwal) throw new \Exception("Jadwal tidak ditemukan");
 
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil ambil data',
-                "data" => $jadwal->get()
+                "data" => $jadwal
             ], 200);
         } catch(\Exception $e) {
             return response()->json([

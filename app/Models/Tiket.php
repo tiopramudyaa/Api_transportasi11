@@ -14,15 +14,25 @@ class Tiket extends Model
 
     protected $fillable = [
         "id_user",
+        "id_jadwal",
+        "id_kereta",
         "dari",
         "ke",
-        "kelas",
+        "status",
         "tanggal_pergi",
         "jumlah"
     ];
 
     public function User() {
         return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function kereta() {
+        return $this->belongsTo(kereta::class, 'id_kereta');
+    }
+
+    public function jadwal() {
+        return $this->belongsTo(jadwal::class, 'id_jadwal');
     }
 
 }

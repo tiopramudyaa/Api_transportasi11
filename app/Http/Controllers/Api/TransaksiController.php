@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tiket;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use PHPUnit\Framework\Attributes\Ticket;
 
-class TiketController extends Controller //done
+class TransaksiController extends Controller //done
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,11 @@ class TiketController extends Controller //done
     public function index()
     {
         try{
-            $tiket = Tiket::all();
+            $transaksi = Transaksi::all();
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil ambil data',
-                "data" => $tiket
+                "data" => $transaksi
             ], 200);
         } catch(\Exception $e) {
             return response()->json([
@@ -36,12 +36,12 @@ class TiketController extends Controller //done
     public function store(Request $request)
     {
         try{
-            $tiket = Tiket::create($request->all());
+            $transaksi = Transaksi::create($request->all());
 
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil insert data',
-                "data" => $tiket
+                "data" => $transaksi
             ], 200);
         }catch(\Exception $e) {
             return response()->json([
@@ -58,14 +58,14 @@ class TiketController extends Controller //done
     public function show($id)
     {
         try {
-            $tiket = Tiket::find($id);
+            $transaksi = Transaksi::find($id);
 
-            if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
+            if(!$transaksi) throw new \Exception("Tiket tidak ditemukan");
 
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil ambil data',
-                "data" => $tiket
+                "data" => $transaksi
             ], 200);
         } catch(\Exception $e) {
             return response()->json([
@@ -79,14 +79,14 @@ class TiketController extends Controller //done
     public function showByUser($id)
     {
         try {
-            $tiket = Tiket::where('id_user','=',$id)->get();
+            $transaksi = Transaksi::where('id_user','=',$id)->get();
 
-            if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
+            if(!$transaksi) throw new \Exception("Tiket tidak ditemukan");
 
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil ambil data',
-                "data" => $tiket
+                "data" => $transaksi
             ], 200);
         } catch(\Exception $e) {
             return response()->json([
@@ -103,16 +103,16 @@ class TiketController extends Controller //done
     public function update(Request $request, $id)
     {
         try {
-            $tiket = Tiket::find($id);
+            $transaksi = Transaksi::find($id);
 
-            if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
+            if(!$transaksi) throw new \Exception("Tiket tidak ditemukan");
 
-            $tiket->update($request->all());
+            $transaksi->update($request->all());
 
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil update data',
-                "data" => $tiket
+                "data" => $transaksi
             ], 200);
             
         } catch(\Exception $e) {
@@ -130,16 +130,16 @@ class TiketController extends Controller //done
     public function destroy($id)
     {
         try {
-            $tiket = Tiket::find($id);
+            $transaksi = Transaksi::find($id);
 
-            if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
+            if(!$transaksi) throw new \Exception("Tiket tidak ditemukan");
 
-            $tiket->delete();
+            $transaksi->delete();
 
             return response()->json([
                 "status" => true,
                 "message" => 'Berhasil hapus data',
-                "data" => $tiket
+                "data" => $transaksi
             ], 200);
         } catch(\Exception $e) {
             return response()->json([

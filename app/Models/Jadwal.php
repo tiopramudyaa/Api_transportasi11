@@ -20,7 +20,8 @@ class jadwal extends Model
         "tiba",
         "status",
         "kursi",
+        "jam_berangkat",
+        "jam_tiba",
         "id_kereta",
-        "id_stasiun"
     ];
 }

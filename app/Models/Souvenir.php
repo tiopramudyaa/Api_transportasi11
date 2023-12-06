@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stasiun extends Model
+class souvenir extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $table = "stasiun";
-    protected $primaryKey = "kode";
-    protected $keyType = 'string';
+    protected $table = "souvenir";
+    protected $primaryKey = "id";
 
     protected $fillable = [
-        "kode",
+        "id",
         "nama",
-        "kota",
+        "berat",
+        "harga",
     ];
-
 }
