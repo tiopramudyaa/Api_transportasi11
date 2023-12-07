@@ -23,7 +23,10 @@ class JadwalController extends Controller
                 'jadwal.tiba', '=', $tiba
             )->where(
                 'jadwal.tanggal', '=', $tgl
+            )->where(
+                'status', '=', 1
             )->get();
+            
             if(!$jadwal) throw new \Exception("Jadwal tidak ditemukan");
 
             return response()->json([

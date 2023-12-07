@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\jadwal;
 use App\Models\Tiket;
 use Illuminate\Http\Request;
 use PHPUnit\Framework\Attributes\Ticket;
@@ -36,7 +37,21 @@ class TiketController extends Controller //done
     public function store(Request $request)
     {
         try{
+            $jadwal  = jadwal::find($request["id_jadwal"]);
+            
+            if($jadwal->kursi - $request["jumlah"] < 0) {
+                return response()->json([
+                    "status" => false,
+                    "message" => "Kursi Tidak ada!",
+                    "data" => []
+                ], 400);
+            }
             $tiket = Tiket::create($request->all());
+            $jadwal->kursi=$jadwal->kursi - $request["jumlah"];
+            if($jadwal->kursi == 0) {
+                $jadwal->status = 0;
+            }
+            $jadwal->save();
 
             return response()->json([
                 "status" => true,
@@ -131,6 +146,8 @@ class TiketController extends Controller //done
     {
         try {
             $tiket = Tiket::find($id);
+            $jadwal = jadwal::find($tiket->id_jadwal);
+            $jadwal->kursi = $jadwal->kursi + $tiket->jumlah;
 
             if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
 

@@ -18,4 +18,15 @@ class transaksi extends Model
         "jumlah",
         "status",
     ];
+
+    public function User() {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function Souvenir() {
+        return $this->belongsTo(souvenir::class, 'id_souvenir');
+    }
+
+
+    
 }
