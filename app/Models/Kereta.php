@@ -11,6 +11,7 @@ class kereta extends Model
     public $timestamps = false;
     protected $table = "kereta";
     protected $primaryKey = "kode";
+    protected $keyType = 'string';
 
     protected $fillable = [
         "kode",

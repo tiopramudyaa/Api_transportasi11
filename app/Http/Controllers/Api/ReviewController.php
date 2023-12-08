@@ -37,6 +37,28 @@ class ReviewController extends Controller //done
         }
     }
 
+    public function FindByKeretaUser($kode,$id)
+    {
+        try{
+            $review = Review::where('id_kereta','=',$kode)->where('id_user','=',$id)->first();
+
+            return response()->json([
+                "status" => true,
+                "message" => 'Berhasil ambil data',
+                "data" => $review,
+            ], 200);
+
+        } catch(\Exception $e) {
+            return response()->json([
+                "status" => false,
+                "message" => $e->getMessage(),
+                "data" => []
+            ], 400);
+        }
+    }
+    
+    
+
     public function store(Request $request)
     {
         try{
