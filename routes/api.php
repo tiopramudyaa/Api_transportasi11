@@ -29,6 +29,7 @@ Route::post('/resetPassword',[UserController::class,'resetPassword']);
 Route::get('/all',[StasiunController::class,'index']);
 
 Route::get('/allSouve',[SouvenirController::class,'index']);
+Route::apiResource('souvenir',SouvenirController::class);
 
 Route::apiResource('transaksi',TransaksiController::class);
 Route::get('transaksiUser/{id}',[TransaksiController::class,'showByUser']);

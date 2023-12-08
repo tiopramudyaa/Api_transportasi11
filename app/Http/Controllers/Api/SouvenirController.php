@@ -29,4 +29,26 @@ class SouvenirController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        try {
+            $souvenir = Souvenir::find($id);
+
+            if(!$souvenir) throw new \Exception("Souvenir tidak ditemukan");
+
+            return response()->json([
+                "status" => true,
+                "message" => 'Berhasil ambil data',
+                "data" => $souvenir
+            ], 200);
+        } catch(\Exception $e) {
+            return response()->json([
+                "status" => false,
+                "message" => $e->getMessage(),
+                "data" => []
+            ], 400);
+        }
+    }
+    
+
 }
