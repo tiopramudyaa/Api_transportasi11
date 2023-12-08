@@ -12,6 +12,8 @@ class kereta extends Model
     protected $table = "kereta";
     protected $primaryKey = "kode";
 
+    protected $keyType = 'string';
+
     protected $fillable = [
         "kode",
         "nama",

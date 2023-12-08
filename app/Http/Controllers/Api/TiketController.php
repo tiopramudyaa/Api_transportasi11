@@ -147,8 +147,9 @@ class TiketController extends Controller //done
         try {
             $tiket = Tiket::find($id);
             $jadwal = jadwal::find($tiket->id_jadwal);
-            $jadwal->kursi = $jadwal->kursi + $tiket->jumlah;
-
+            if($tiket->status == "Belum Dibayar") {
+                $jadwal->kursi = $jadwal->kursi + $tiket->jumlah;    
+            }
             if(!$tiket) throw new \Exception("Tiket tidak ditemukan");
 
             $tiket->delete();
