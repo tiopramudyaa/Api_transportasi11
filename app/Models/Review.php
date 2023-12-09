@@ -15,6 +15,7 @@ class review extends Model
     protected $fillable = [
         "id_kereta",
         "id_user",
+        "rekomendasi",
         "content"
     ];
 

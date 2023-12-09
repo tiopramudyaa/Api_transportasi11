@@ -48,4 +48,5 @@ Route::get('/jadwal/{id}',[JadwalController::class,'showById']);
 
 Route::apiResource('review', ReviewController::class);
 Route::get('/reviewByKereta/{kode}',[ReviewController::class,'index']);
+Route::get('/reviewUser/{kode}/{id}',[ReviewController::class,'FindByKeretaUser']);
 
