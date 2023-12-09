@@ -58,7 +58,6 @@ class ReviewController extends Controller //done
         }
     }
     
-
     public function store(Request $request)
     {
         try{
