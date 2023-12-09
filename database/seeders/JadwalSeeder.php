@@ -16,7 +16,7 @@ class JadwalSeeder extends Seeder
         DB::table('jadwal')->insert([
             [
                 'id_kereta' => 'JGS-1',
-                'tanggal' => '2023-12-05 00:00:00',
+                'tanggal' => '2023-12-09 00:00:00',
                 'harga' => 12000,
                 'berangkat' => 'GMR',
                 'tiba' => 'LPY',
@@ -27,7 +27,7 @@ class JadwalSeeder extends Seeder
             ],
             [
                 'id_kereta' => 'JGS-1',
-                'tanggal' => '2023-12-05 00:00:00',
+                'tanggal' => '2023-12-08 00:00:00',
                 'harga' => 12000,
                 'berangkat' => 'LPY',
                 'tiba' => 'YK',
@@ -38,7 +38,7 @@ class JadwalSeeder extends Seeder
             ],
             [
                 'id_kereta' => 'PRMX-1',
-                'tanggal' => '2023-12-05 00:00:00',
+                'tanggal' => '2023-12-09 00:00:00',
                 'harga' => 12000,
                 'berangkat' => 'LPY',
                 'tiba' => 'YK',
