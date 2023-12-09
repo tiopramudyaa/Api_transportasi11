@@ -24,8 +24,6 @@ class JadwalSeeder extends Seeder
                 'kursi' => 118,
                 'jam_berangkat' => '12:20:00',
                 'jam_tiba' => '13:20:00',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
                 'id_kereta' => 'JGS-1',
@@ -37,8 +35,17 @@ class JadwalSeeder extends Seeder
                 'kursi' => 120,
                 'jam_berangkat' => '14:00:00',
                 'jam_tiba' => '14:20:00',
-                'created_at' => now(),
-                'updated_at' => now(),
+            ],
+            [
+                'id_kereta' => 'PRMX-1',
+                'tanggal' => '2023-12-05 00:00:00',
+                'harga' => 12000,
+                'berangkat' => 'LPY',
+                'tiba' => 'YK',
+                'status' => 1,
+                'kursi' => 120,
+                'jam_berangkat' => '14:10:00',
+                'jam_tiba' => '14:30:00',
             ],
         ]);
     }
