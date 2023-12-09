@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\kereta;
+use App\Models\Kereta;
 use Illuminate\Http\Request;
 
 class KeretaController extends Controller //done kode masih 0 tapi tersimpan dengan baik (cuma tampilan)
