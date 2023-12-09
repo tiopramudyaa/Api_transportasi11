@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->references('id')->on('users');
-            $table->foreignId('id_souvenir')->references('id')->on('souvenir');
+            $table->integer('id_user');
+            $table->foreignId('id_souvenir')->constrained('souvenir');
             $table->integer('jumlah');
             $table->string('status');
         });

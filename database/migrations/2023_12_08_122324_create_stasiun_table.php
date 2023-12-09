@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('stasiun', function (Blueprint $table) {
             $table->string('nama');
             $table->string('kota');
-            $table->string('kode')->primary();
+            $table->string('kode')->unique();
+            // $table->primary('kode',false);
         });
     }
 

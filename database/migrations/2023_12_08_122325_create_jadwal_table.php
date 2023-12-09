@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\kereta;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('jadwal', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(kereta::class, 'id_kereta')->references('kode')->on('kereta');
+            $table->string('id_kereta');
+            $table->foreign('id_kereta')->references('kode')->on('kereta');
             $table->DateTime('tanggal');
             $table->integer('harga');
             $table->string('berangkat');

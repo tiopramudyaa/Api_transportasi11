@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\kereta;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,8 +17,9 @@ return new class extends Migration
             $table->string('dari');
             $table->string('ke');
             $table->dateTime('tanggal_pergi');
-            $table->foreignIdFor(kereta::class, 'id_kereta')->references('kode')->on('kereta');
-            $table->foreignId('id_jadwal')->references('id')->on('jadwal');
+            $table->string('id_kereta');
+            $table->foreign('id_kereta')->references('kode')->on('kereta');
+            $table->foreignId('id_jadwal')->constrained('jadwal');
             $table->integer('jumlah');
             $table->string('status');
         });

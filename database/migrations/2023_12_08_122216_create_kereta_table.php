@@ -13,7 +13,8 @@ return new class extends Migration
     {   
         Schema::dropIfExists('kereta');
         Schema::create('kereta', function (Blueprint $table) {
-            $table->char('kode',36)->primary();
+            $table->string('kode')->unique();
+            // $table->primary('kode',false);
             $table->string('nama');
             $table->integer('kapasitas');
             $table->integer('rating')->nullable();
